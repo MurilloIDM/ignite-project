@@ -1,5 +1,5 @@
-import { Category } from "../model/Category";
-import { ICategoriesRepository, IRequest } from "./ICategoriesRepository";
+import { Category } from "../../model/Category";
+import { ICategoriesRepository, IRequest } from "../ICategoriesRepository";
 
 class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[];
