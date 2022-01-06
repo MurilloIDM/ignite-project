@@ -46,7 +46,7 @@
 - O usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
 - O usuário responsável pelo cadastro deve ser um usuário administrator.
 
-# Aluguel de Carro
+# Aluguel de Carros
 
 **RF**
 - Deve ser possível cadastrar um aluguel.
