@@ -1,5 +1,8 @@
-import { Category } from "../../entities/Category";
-import { ICategoriesRepository, IRequest } from "../ICategoriesRepository";
+import { Category } from "@modules/cars/infra/typeorm/entities/Category";
+import {
+  ICategoriesRepository,
+  IRequest,
+} from "@modules/cars/repositories/ICategoriesRepository";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
   private categories: Category[] = [];
