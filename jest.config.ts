@@ -17,13 +17,13 @@ export default {
 
   // Automatically clear mock calls, instances and results before every test
 
-  clearMocks: true,
+  clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
 
   // collectCoverage: false,
 
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
+  // An array of glob patterns indicating a set of files for whitech coverage information should be collected
 
   // collectCoverageFrom: undefined,
 
@@ -195,7 +195,7 @@ export default {
 
   // The test environment that will be used for testing
 
-  // testEnvironment: "jest-environment-node",
+  testEnvironment: "node",
 
   // Options that will be passed to the testEnvironment
 
