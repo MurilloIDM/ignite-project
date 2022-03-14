@@ -1,4 +1,4 @@
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { IDevolutionRentalDTO } from "@modules/rentals/dtos/IDevolutionRentalDTO";
@@ -7,13 +7,14 @@ import { IRentailsRepository } from "@modules/rentals/repositories/IRentailsRepo
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
+@injectable()
 class DevolutionRentalUseCase {
   constructor(
     @inject("RentalsRepository")
     private rentalsRepository: IRentailsRepository,
     @inject("CarsRepository")
     private carsRepository: ICarsRepository,
-    @inject("DayjsDateProvider")
+    @inject("DayjsProvider")
     private dateProvider: IDateProvider
   ) {}
 
