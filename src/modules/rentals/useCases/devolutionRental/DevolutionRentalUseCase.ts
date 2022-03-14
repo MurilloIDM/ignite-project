@@ -18,7 +18,7 @@ class DevolutionRentalUseCase {
     private dateProvider: IDateProvider
   ) {}
 
-  async execute({ id, user_id }: IDevolutionRentalDTO): Promise<Rental> {
+  async execute({ id }: IDevolutionRentalDTO): Promise<Rental> {
     let total = 0;
     const minimum_daily = 1;
 

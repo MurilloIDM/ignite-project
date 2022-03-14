@@ -52,7 +52,7 @@
 - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
 - Ao realizar um aluguel o status do carro deverá ser alterado para indisponível.
 
-# Devolução de Caroo
+# Devolução de Carros
 
 **RF**
 Deve ser possível realizar a devolução de um carro
@@ -65,4 +65,12 @@ Deve ser possível realizar a devolução de um carro
 - Caso o horário de devolução seja superior ao horário previsto de entrega, deverá
 ser cobrado multa proporcional aos dias de atraso.
 - Caso haja multa, deverá ser somado ao total de aluguel.
+- O usuário deve estar logado na aplicação.
+
+# Listagem de aluguéis do usuário
+
+**RF**
+- Deve ser possível realizar a busca de todos os aluguéis para o usuário.
+
+**RN**
 - O usuário deve estar logado na aplicação.
