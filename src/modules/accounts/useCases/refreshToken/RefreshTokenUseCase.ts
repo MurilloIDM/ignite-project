@@ -1,5 +1,5 @@
 import { sign, verify } from "jsonwebtoken";
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
 import auth from "@config/auth";
 import { IResponseRefreshTokenDTO } from "@modules/accounts/dtos/IResponseRefreshTokenDTO";
@@ -12,6 +12,7 @@ interface IPayload {
   email: string;
 }
 
+@injectable()
 class RefreshTokenUseCase {
   constructor(
     @inject("UsersTokensRepository")
