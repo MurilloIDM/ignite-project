@@ -74,3 +74,15 @@ ser cobrado multa proporcional aos dias de atraso.
 
 **RN**
 - O usuário deve estar logado na aplicação.
+
+
+# Recuperar senha
+
+**RF**
+- Deve ser possível o usuário recuperar a senha informando o e-mail
+- O usuário deve receber um e-mail com o passo a passo para a recuperação da senha
+- O usuário deve conseguir inserir uma nova senha
+
+**RN**
+- O usuário precisa informar uma nova senha
+- O link enviado para a recuperar deve expirar em 3 horas

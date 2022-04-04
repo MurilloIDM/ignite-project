@@ -1,9 +1,11 @@
 import { inject, injectable } from "tsyringe";
 import { v4 as uuidV4 } from "uuid";
+import { resolve } from "path";
 
 import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
+import { IMailprovider } from "@shared/container/providers/MailProvider/IMailProvider";
 import { AppError } from "@shared/errors/AppError";
 
 @injectable()
@@ -14,10 +16,20 @@ class SendForgotPasswordMailUseCase {
     @inject("UsersTokensRepository")
     private usersTokensRepository: IUsersTokensRepository,
     @inject("DayjsProvider")
-    private dayjsProvider: IDateProvider
+    private dayjsProvider: IDateProvider,
+    @inject("EtherealMailProvider")
+    private etherealMailProvider: IMailprovider
   ) {}
 
-  async execute(email: string) {
+  async execute(email: string): Promise<void> {
+    const templatePath = resolve(
+      __dirname,
+      "..",
+      "..",
+      "views",
+      "emails",
+      "forgotPassword.hbs"
+    );
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
@@ -32,6 +44,16 @@ class SendForgotPasswordMailUseCase {
       refresh_token: token,
       expires_date: expiresDate,
     });
+    const variables = {
+      name: user.name,
+      link: `${process.env.FORGOT_MAIL_URL}${token}`,
+    };
+    await this.etherealMailProvider.sendMail(
+      email,
+      "Recuperação de senha",
+      variables,
+      templatePath
+    );
   }
 }
 
