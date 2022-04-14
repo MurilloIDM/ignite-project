@@ -30,8 +30,8 @@ describe("List Categories Controller", () => {
   });
 
   afterAll(async () => {
-    connection.dropDatabase();
-    connection.close();
+    await connection.dropDatabase();
+    await connection.close();
   });
 
   it("should be able to list all categories", async () => {
@@ -40,7 +40,7 @@ describe("List Categories Controller", () => {
       password: "admin",
     });
 
-    const { refresh_token } = responseToken.body;
+    const { token } = responseToken.body;
 
     await request(app)
       .post("/categories/")
@@ -48,7 +48,7 @@ describe("List Categories Controller", () => {
         name: "category name test",
         description: "description category test",
       })
-      .set({ Authorization: `Bearer ${refresh_token}` });
+      .set({ Authorization: `Bearer ${token}` });
 
     const response = await request(app).get("/categories/");
 

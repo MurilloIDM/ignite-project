@@ -51,8 +51,14 @@ class RefreshTokenUseCase {
       user_id,
     });
 
+    const newToken = sign({}, auth.secret_token, {
+      subject: user_id,
+      expiresIn: auth.expires_in_token,
+    });
+
     return {
-      token: refresh_token,
+      refresh_token,
+      token: newToken,
     } as IResponseRefreshTokenDTO;
   }
 }
