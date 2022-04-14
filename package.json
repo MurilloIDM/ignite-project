@@ -10,6 +10,8 @@
     "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
+    "@sentry/node": "^6.19.6",
+    "@sentry/tracing": "^6.19.6",
     "bcryptjs": "^2.4.3",
     "csv-parse": "^4.15.4",
     "dayjs": "^1.10.7",
